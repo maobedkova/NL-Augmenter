@@ -1,0 +1,21 @@
+{
+    "type": "keywords",
+    "test_cases": [
+        {
+            "class": "TextSavesPolarity",
+            "args": {},
+            "inputs": {
+                "sentence": "Hotel is nice"
+            },
+            "outputs": true
+        },
+        {
+            "class": "TextSavesPolarity",
+            "args": {},
+            "inputs": {
+                "sentence": "Hotel is aweful"
+            },
+            "outputs": true
+        }
+    ]
+}
