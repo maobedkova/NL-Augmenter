@@ -3,17 +3,45 @@
     "test_cases": [
         {
             "class": "TextSavesPolarity",
-            "args": {},
+            "args": {
+                "diff_allowed":  0.5
+            },
             "inputs": {
-                "sentence": "Hotel is nice"
+                "sentence1": "Hotel is nice",
+                "sentence2": "Hotel is good"
             },
             "outputs": true
         },
         {
             "class": "TextSavesPolarity",
-            "args": {},
+            "args": {
+                "diff_allowed":  0.5
+            },
             "inputs": {
-                "sentence": "Hotel is aweful"
+                "sentence1": "Hotel is awesome",
+                "sentence2": "Hotel is bad"
+            },
+            "outputs": false
+        },
+        {
+            "class": "TextSavesPolarity",
+            "args": {
+                "diff_allowed":  0.5
+            },
+            "inputs": {
+                "sentence1": "Hotel is terrible",
+                "sentence2": "Hotel is great"
+            },
+            "outputs": false
+        },
+        {
+            "class": "TextSavesPolarity",
+            "args": {
+                "diff_allowed":  0.5
+            },
+            "inputs": {
+                "sentence1": "Hotel is awful",
+                "sentence2": "Hotel is bad"
             },
             "outputs": true
         }

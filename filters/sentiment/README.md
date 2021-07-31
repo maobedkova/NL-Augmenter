@@ -2,17 +2,24 @@
 
 ## What type of a filter is this?
 
-This filter filters example which contain a pre-defined set of keywords.
-Author: Zhenhao Li
+This filter filters a transformed text if it does not retain the same polarity as an original text.
+
+Author: Maria Obedkova
 
 ## Why is measuring performance on this split important?
-This filter can be used to create splits of a specific domain. Filtering out and testing on examples belonging to a specific domain can provide feedback for improving training data accordingly.
 
-python evaluate.py -f TextContainsKeywordsFilter -p=1  
-Here is the performance of the model on the filtered set
-The accuracy on this subset which has 219 examples= 95.89041095890411
+This filter helps not to distort training data during augmentation for sentiment analysis-related tasks.
+While generating new data for a sentiment analysis task, it is important to make sure that generated data is labelled correctly.
+If a newly generated example does not retain the same polarity as an original one, we might want to exlude it from final training data or relabel.
+
+Especially, when dealing with distributional approaches for data augmentation, it is crucial to check if polarity does not shift on generated examples.
+This filter helps to identify those polarity-changing transformations.
 
 ## Related Work
 
+[spaCyTextBlob](https://github.com/SamEdwardes/spaCyTextBlob)
+
 ## What are the limitations of this filter?
-This filter serves as an example filter. It relies on lexical and purely context-free matching for filtering out examples. 
+
+This filter purely relies on sentiment scores provided by the TextBlob library. 
+OOV words and inconsistent sentiment scoring may occur.
